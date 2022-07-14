@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">InAPISDK Sample</string>
+
+    <string name="file_provider_authority">com.peoplelink.inapisdksample.fileprovider</string>
+</resources>
