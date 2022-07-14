@@ -10,7 +10,7 @@ data class SessionRequest(
 
 data class MeetingDetails(
     val duration: Int,
-    val hostEmail: String,
+    val hostUid: String,
     val meetingId: String,
     val meetingName: String,
     val participantLimit: Int
