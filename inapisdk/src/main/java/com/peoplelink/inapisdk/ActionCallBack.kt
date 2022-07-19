@@ -2,6 +2,6 @@ package com.peoplelink.inapisdk
 
 interface ActionCallBack {
     fun onLoading(isLoading : Boolean)
-    fun onSuccess(message: String?)
+    fun onSuccess(url: String?)
     fun onFailure(error: String?)
 }

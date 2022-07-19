@@ -5,10 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitHelper {
 
-    private const val baseUrl = "https://api.inapi.vc/publicuser/"
-
     fun getInstance(): Retrofit {
-        return Retrofit.Builder().baseUrl(baseUrl)
+        return Retrofit.Builder().baseUrl(Utils().baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

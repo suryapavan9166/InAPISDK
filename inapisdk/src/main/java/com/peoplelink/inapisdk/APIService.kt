@@ -4,18 +4,12 @@ import com.peoplelink.inapisdk.model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface APIService {
 
-    @POST("applicationresetkey")
-    fun userProjectData(@Body projectDataRequest: ProjectDataRequest?): Call<ProjectDataResponse?>?
-
-    @POST("tokenVerification")
-    fun userVerifyData(@Body userVerifyRequest: UserVerifyRequest?): Call<UserVerifyResponse?>?
+    @GET("getTokenbyId")
+    fun getToken(@Query("projectId") projectId : String): Call<GetTokenResponse?>?
 
     @POST("createSession")
     fun sessionIdData(@Body sessionRequest: SessionRequest?): Call<SessionResponse?>?
