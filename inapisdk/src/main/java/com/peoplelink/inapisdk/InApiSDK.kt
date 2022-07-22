@@ -17,6 +17,8 @@ import java.util.*
 
 class InApiSDK {
 
+    private var sessionId:String=""
+
     fun getUrl(projectId: String, hostEmail: String, appKey: String, meetingDetails: MeetingDetails, callBack: ActionCallBack) {
         if (projectId.isNotEmpty()) {
             if (hostEmail.isNotEmpty()) {
@@ -82,6 +84,8 @@ class InApiSDK {
                                                             )
                                                         }.toString()
 
+                                                    sessionId= response.body()?.data?.sessionId.toString()
+
                                                     retrofitAPI.templateData(
                                                         projectId
                                                     )!!.enqueue(object :
@@ -95,7 +99,7 @@ class InApiSDK {
                                                                     false
                                                                 )
                                                                 val url =
-                                                                    "https://" + response.body()!!.data.subDomain + ".invc.vc/" + response.body()!!.data.templateId + "?token=" + token + "&projectId=" + response.body()!!.data.projectId + "&uid=" + encodedString
+                                                                    "https://" + response.body()!!.data.subDomain + ".invc.vc/" + sessionId + "?token=" + token + "&projectId=" + response.body()!!.data.projectId + "&uid=" + encodedString
                                                                 callBack.onSuccess(
                                                                     url
                                                                 )
@@ -120,7 +124,7 @@ class InApiSDK {
                                                             t: Throwable
                                                         ) {
                                                             callBack.onLoading(false)
-                                                            callBack.onFailure(t.message.toString())
+                                                            callBack.onFailure(t.message.toString()+"hello")
                                                         }
 
                                                     })
